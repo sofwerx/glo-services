@@ -1,0 +1,14 @@
+version: "2.1"
+services:
+
+  glo-services:
+    container_name: glo-services
+    hostname: glo-services
+    build: .
+    image: glo-services
+    volumes:
+      - .:/glo-services
+
+    ports:
+      - 3000:3000
+

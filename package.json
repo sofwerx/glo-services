@@ -1,0 +1,12 @@
+{
+  "name": "glo-services",
+  "version": "0.1.0",
+  "description": "Web services for GLO data",
+  "main": "svc.js",
+  "scripts": {
+    "start": "node svc.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
