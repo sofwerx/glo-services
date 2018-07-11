@@ -19,4 +19,4 @@ RUN apt-get -q update && apt-get install -y -qq \
 RUN git clone https://github.com/sofwerx/glo-services.git
 WORKDIR /glo-services
 
-CMD ./run.sh
+CMD npm start

@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
   res.send('Hello world\n');
 });
 
-app.post('/auth', function(req, res) {
+app.post('/AuthService', function(req, res) {
   if (req.body.id == 'foo' && req.body.pass == 'bar') {
     res.cookie("glo-svc","XYZZZ",{maxAge: 86400});
     res.json({
