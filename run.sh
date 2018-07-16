@@ -1,4 +1,6 @@
 #! /bin/bash -v
-ls
+PATH=$PATH:node_modules/.bin
 
-npm run
+npm start
+#nodemon --exec npm start
+

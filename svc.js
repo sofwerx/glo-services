@@ -2,7 +2,7 @@
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-// App
+// App setup
 var app = require('express')();
 var bodyParser = require('body-parser');
 
@@ -10,22 +10,208 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.get('/', function(req, res) {
-  res.send('Hello world\n');
+  res.send('GLO Web Services - contact Tracey Birch @ SOFWERX for information\n');
 });
+
+// Services for GLO components
 
 app.post('/AuthService', function(req, res) {
   if (req.body.id == 'foo' && req.body.pass == 'bar') {
+    // TODO: verify cookie / auth token & send new token for next tx (for ALL services)
     res.cookie("glo-svc","XYZZZ",{maxAge: 86400});
-    res.json({
-      "authenticated": true
-    })
+    res.json(AuthService);
   } else {
     res.json({
       "authenticated": false
     })
   }
-})
+  return;
+});
 
+app.post('/ForceMgmtService/GetUnitPAX', function(req, res) {
+  var token = req.body.token;
+  var unit = req.body.unit;
+
+  res.cookie("glo-svc","XYZZZ2",{maxAge: 86400});
+  res.json(ForceMgmtService_GetUnitPAX);
+});
+
+app.post('/ForceMgmtService/GetUnitTOE', function(req, res) {
+  var token = req.body.token;
+  var unit = req.body.unit;
+
+  // look up TOE based on UIC
+  res.cookie("glo-svc","XYZZZ3",{maxAge: 86400});
+  res.json(ForceMgmtService_GetUnitTOE);
+});
+
+app.post('WeatherService/GetClimate', function(req, res) {
+  var token = req.body.token;
+  var unit = req.body.unit;
+
+  // look up TOE based on UIC
+  res.cookie("glo-svc","XYZZZ4",{maxAge: 86400});
+  res.json(WeatherService_GetClimate);
+});
+
+app.post('/WeatherService/GetWeatherRpt', function(req, res) {
+  var token = req.body.token;
+  var unit = req.body.unit;
+
+  // look up TOE based on UIC
+  res.cookie("glo-svc","XYZZZ5",{maxAge: 86400});
+  res.json(WeatherService_GetWeatherRpt);
+});
+
+app.post('/PlanFactorService', function(req, res) {
+
+});
+
+app.post('/ApprovalService', function(req, res) {
+
+});
+
+app.post('/SupplyService', function(req, res) {
+
+});
+
+/////////////////////////////////////////////////////////////
+// Static / test JSON data
+// TODO: look up based on input
+/////////////////////////////////////////////////////////////
+var AuthService = {
+  "authenticated": true,
+  "token": "XYZZZ",
+  "units": [
+    "WH1BAA",
+    "WH1BA0",
+    "WH1BA1"
+  ]
+};
+
+var ForceMgmtService_GetUnitPAX = {
+  "requestOK": true,
+  "token": "XYZZZ2",
+  "UIC": "WH1BAA",
+  "PAXlist": [
+    {
+      "qty": 80,
+      "branch": "AR",
+      "rank": "enlisted",
+      "duty": "active",
+      "gender": "M"
+    },
+    {
+      "qty": 8,
+      "branch": "AR",
+      "rank": "officer",
+      "duty": "active",
+      "gender": "M"
+    },
+    {
+      "qty": 2,
+      "branch": "AR",
+      "rank": "officer",
+      "duty": "active",
+      "gender": "F"
+    },
+    {
+      "qty": 10,
+      "branch": "AF",
+      "rank": "officer",
+      "duty": "active",
+      "gender": "M"
+    }
+  ]
+}
+
+var ForceMgmtService_GetUnitTOE = {
+  "requestOK": true,
+  "token": "XYZZZ3",
+  "UIC": "WH1BAA",
+  "EqipList": [
+    {
+      "LIN-TAMCN": "R45351",
+      "name": "RIFLE SNIPER .50 CALIBER: M107",
+      "qty-onhand": 36,
+      "category": "shoot",
+    },
+    {
+      "LIN-TAMCN": "L69080",
+      "name": "LAUNCHER GRENADE: M320A1",
+      "qty-onhand": 49,
+      "category": "shoot",
+    },
+    {
+      "LIN-TAMCN": "N05482",
+      "name": "NIGHT VISION: GOGGLE",
+      "qty-onhand": 47,
+      "category": "shoot",
+    },
+    {
+      "LIN-TAMCN": "T41036",
+      "name": "TRUCK CARGO: 5 TON 6X6 MTV W/E LAPES/AD",
+      "qty-onhand": 3,
+      "category": "move",
+    },
+    {
+      "LIN-TAMCN": "T59584",
+      "name": "TRUCK CARGO: W/MHE WO/WINCH",
+      "qty-onhand": 4,
+      "category": "move",
+    },
+    {
+      "LIN-TAMCN": "W98825",
+      "name": "TRAILER TANK: WATER 400 GALLON 1-1/2 TON 2 WHEEL W/E",
+      "qty-onhand": 1,
+      "category": "move",
+    },
+    {
+      "LIN-TAMCN": "R05007",
+      "name": "RADIO SET: MULTIBAND MANPACK",
+      "qty-onhand": 64,
+      "category": "comms",
+    },
+    {
+      "LIN-TAMCN": "T05021",
+      "name": "TACTICAL LOCAL AREA NETWRK (TACLAN):",
+      "qty-onhand": 1,
+      "category": "comms",
+    },
+    {
+      "LIN-TAMCN": "70210N",
+      "name": "COMPUTER, MICRO LAP TOP PORTABLE AC/DC W/BATTERY PK",
+      "qty-onhand": 480,
+      "category": "comms",
+    },
+  ]
+};
+
+var WeatherService_GetClimate = {
+  "location": {
+    "lat": 69.190509,
+    "lon": 34.536212
+  },
+  "ClimateTemp": "temperate",
+  "ClimateHumidity": "arid"
+}
+
+var WeatherService_GetWeatherRpt = {
+  "location": {
+    "lat": 69.190509,
+    "lon": 34.536212
+  },
+  DateRange: {
+    "start": "2018-08-01",
+    "end": "2018-11-30"
+  },
+  "AvgTemp": 23.5,
+  "AvgHumidity": 24,
+  "Precipitation": 0
+}
+
+
+/////////////////////////////////////////////////////////////
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
