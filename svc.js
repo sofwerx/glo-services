@@ -45,7 +45,7 @@ app.post('/ForceMgmtService/GetUnitTOE', function(req, res) {
   res.json(ForceMgmtService_GetUnitTOE);
 });
 
-app.post('WeatherService/GetClimate', function(req, res) {
+app.post('/WeatherService/GetClimate', function(req, res) {
   var token = req.body.AuthToken;
   var unit = req.body.UIC;
 
