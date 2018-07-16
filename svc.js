@@ -29,16 +29,16 @@ app.post('/AuthService', function(req, res) {
 });
 
 app.post('/ForceMgmtService/GetUnitPAX', function(req, res) {
-  var token = req.body.token;
-  var unit = req.body.unit;
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
   res.cookie("glo-svc","XYZZZ2",{maxAge: 86400});
   res.json(ForceMgmtService_GetUnitPAX);
 });
 
 app.post('/ForceMgmtService/GetUnitTOE', function(req, res) {
-  var token = req.body.token;
-  var unit = req.body.unit;
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
   // look up TOE based on UIC
   res.cookie("glo-svc","XYZZZ3",{maxAge: 86400});
@@ -46,8 +46,8 @@ app.post('/ForceMgmtService/GetUnitTOE', function(req, res) {
 });
 
 app.post('WeatherService/GetClimate', function(req, res) {
-  var token = req.body.token;
-  var unit = req.body.unit;
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
   // look up TOE based on UIC
   res.cookie("glo-svc","XYZZZ4",{maxAge: 86400});
@@ -55,8 +55,8 @@ app.post('WeatherService/GetClimate', function(req, res) {
 });
 
 app.post('/WeatherService/GetWeatherRpt', function(req, res) {
-  var token = req.body.token;
-  var unit = req.body.unit;
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
   // look up TOE based on UIC
   res.cookie("glo-svc","XYZZZ5",{maxAge: 86400});
@@ -81,7 +81,7 @@ app.post('/SupplyService', function(req, res) {
 /////////////////////////////////////////////////////////////
 var AuthService = {
   "authenticated": true,
-  "token": "XYZZZ",
+  "AuthToken": "XYZZZ",
   "units": [
     "WH1BAA",
     "WH1BA0",
@@ -91,7 +91,7 @@ var AuthService = {
 
 var ForceMgmtService_GetUnitPAX = {
   "requestOK": true,
-  "token": "XYZZZ2",
+  "AuthToken": "XYZZZ2",
   "UIC": "WH1BAA",
   "PAXlist": [
     {
@@ -127,7 +127,7 @@ var ForceMgmtService_GetUnitPAX = {
 
 var ForceMgmtService_GetUnitTOE = {
   "requestOK": true,
-  "token": "XYZZZ3",
+  "AuthToken": "XYZZZ3",
   "UIC": "WH1BAA",
   "EqipList": [
     {
