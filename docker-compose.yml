@@ -6,8 +6,8 @@ services:
     hostname: glo-services
     build: .
     image: glo-services
-    volumes:
-      - .:/glo-services
+#    volumes:
+#      - .:/glo-services
 
     ports:
       - 8080:8080
