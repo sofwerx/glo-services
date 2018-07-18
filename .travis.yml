@@ -11,7 +11,7 @@ before_script:
 - eval $(dmport --import "$(cat .dm)")
 - rm -f .dm
 script:
-- export COMPOSE_PROJECT_NAME=glo-services
+- export COMPOSE_PROJECT_NAME=swxvmhost
 - docker-compose build -t sofwerx/glo-services:latest .
 - docker-compose up -d --force-recreate glo-services
 after_success:

@@ -1,14 +1,33 @@
 version: "2.1"
+
+x-logging:
+  &default-logging
+  options:
+    max-size: '12m'
+    max-file: '5'
+  driver: json-file
+
+networks: 
+  default:
+    driver: bridge
+
 services:
 
   glo-services:
     container_name: glo-services
     hostname: glo-services
     build: .
-    image: glo-services
-#    volumes:
+    image: sofwerx/glo-services:latest
 #      - .:/glo-services
-
     ports:
       - 8080:8080
+    networks:
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=glo-services"
+      - "traefik.port=8080"
+      - "traefik.frontend.rule=Host:glo-services.vmhost.devwerx.org"
+      - "traefik.frontend.passHostHeader=false"
+      - "traefik.frontend.entryPoints=http,https"
 
