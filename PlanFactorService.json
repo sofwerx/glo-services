@@ -1,0 +1,10 @@
+{
+   "requestOK": true,
+   "AuthToken": "XYZZZ3",
+   "UIC": "WH1BAA",
+   "SupplyClass": 1,
+   "Terrain": ["sandy", "rocky"],
+   "Weather": ["dry", "hot"],
+   "OpTempo": "Attack",
+   "UnitPax": "12"
+}

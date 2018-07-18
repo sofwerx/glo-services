@@ -1,0 +1,33 @@
+{
+   "requestOK": true,
+   "AuthToken": "XYZZZ3",
+   "UIC": "WH1BAA",
+   "SupplyClass": 1,
+   "ItemsRequested": [
+      {
+        "NSN": "8970-01-543-3458",
+        "name": "First-Strike-Ration(FSR)",
+        "qty": "12"
+      },
+      {
+        "NSN": "8970-00-149-1094",
+        "name": "Meal-Ready-to-Eat(MRE)",
+        "qty": "40"
+      },
+      {
+        "NSN": "8970-01-432-9951",
+        "name": "UGR H&S Lunch Menu 2",
+        "qty": "3"
+      },
+      {
+        "NSN": "8970-01-432-9976",
+        "name": "UGR H&S Lunch Menu 5",
+        "qty": "3"
+      },
+      {
+        "NSN": "8970-01-433-0018",
+        "name": "UGR H&S Lunch Menu 9",
+        "qty": "3"
+      }
+    ]
+}
