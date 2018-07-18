@@ -1,0 +1,5 @@
+.git
+.gitignore
+.dm
+.dm.enc
+.travis.yml
