@@ -64,15 +64,27 @@ app.post('/WeatherService/GetWeatherRpt', function(req, res) {
 });
 
 app.post('/PlanFactorService', function(req, res) {
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
+  res.cookie("glo-svc","XYZZZ6",{maxAge: 86400});
+  res.json(PlanFactorService);
 });
 
 app.post('/ApprovalService', function(req, res) {
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
+  res.cookie("glo-svc","XYZZZ7",{maxAge: 86400});
+  res.json(ApprovalService);
 });
 
 app.post('/SupplyService', function(req, res) {
+  var token = req.body.AuthToken;
+  var unit = req.body.UIC;
 
+  res.cookie("glo-svc","XYZZZ8",{maxAge: 86400});
+  res.json(SupplyService);
 });
 
 /////////////////////////////////////////////////////////////
@@ -210,7 +222,76 @@ var WeatherService_GetWeatherRpt = {
   "Precipitation": 0
 }
 
+var PlanFactorService = {
+   "requestOK": true,
+   "AuthToken": "XYZZZ3",
+   "UIC": "WH1BAA",
+   "SupplyClass": 1,
+   "Terrain": ["sandy", "rocky"],
+   "Weather": ["dry", "hot"],
+   "OpTempo": "Attack",
+   "UnitPax": "12"
+}
 
+var ApprovalService = {
+   "requestOK": true,
+   "AuthToken": "XYZZZ3",
+   "UIC": "WH1BAA",
+   "ApprovalRequest": [
+      {
+       "name": "Baldwin, Christopher M MAJ USSOCOM SOCOM J43 ",
+       "email": "christopher.baldwin@socom.mil",
+       "section": "TSOC",
+       "category": "Approval"
+      },
+      {
+       "name": "Caldas, Rodrigo Data Science/DevOps Intern",
+       "email": "rodrigo.caldas.intern@sofwerx.org",
+       "section": "SOFWERX Level 1",
+       "category": "Notification"
+      },
+      {
+       "name": "Birch, Tracy Sr. Software Developer",
+       "email": "tracey.birch@sofwerx.org",
+       "section": "SOFWERX Level 2",
+       "category": "Notification"
+      }
+    ]
+}
+
+var SupplyService = {
+   "requestOK": true,
+   "AuthToken": "XYZZZ3",
+   "UIC": "WH1BAA",
+   "SupplyClass": 1,
+   "ItemsRequested": [
+      {
+        "NSN": "8970-01-543-3458",
+        "name": "First-Strike-Ration(FSR)",
+        "qty": "12"
+      },
+      {
+        "NSN": "8970-00-149-1094",
+        "name": "Meal-Ready-to-Eat(MRE)",
+        "qty": "40"
+      },
+      {
+        "NSN": "8970-01-432-9951",
+        "name": "UGR H&S Lunch Menu 2",
+        "qty": "3"
+      },
+      {
+        "NSN": "8970-01-432-9976",
+        "name": "UGR H&S Lunch Menu 5",
+        "qty": "3"
+      },
+      {
+        "NSN": "8970-01-433-0018",
+        "name": "UGR H&S Lunch Menu 9",
+        "qty": "3"
+      }
+    ]
+}
 /////////////////////////////////////////////////////////////
 
 app.listen(PORT, HOST);
