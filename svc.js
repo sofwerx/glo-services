@@ -210,7 +210,7 @@ var WeatherService_GetClimate = {
 
 var WeatherService_GetWeatherRpt = {
   "location": {
-    "lat": 69.190509,
+    "lat": 23.190509,
     "lon": 34.536212
   },
   DateRange: {
