@@ -16,13 +16,11 @@ RUN apt-get -q update && apt-get install -y -qq \
   unzip \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# for production versio
-RUN git clone https://github.com/sofwerx/glo-services.git
+COPY . /glo-services
 
 # for local dev version
 #RUN mkdir -p /glo-services
 #VOLUME /glo-services
-
 
 WORKDIR /glo-services
 
