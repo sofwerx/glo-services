@@ -201,7 +201,7 @@ var ForceMgmtService_GetUnitTOE = {
 
 var WeatherService_GetClimate = {
   "location": {
-    "lat": 75.190509,
+    "lat": 69.190509,
     "lon": 34.536212
   },
   "ClimateTemp": "temperate",
@@ -210,7 +210,7 @@ var WeatherService_GetClimate = {
 
 var WeatherService_GetWeatherRpt = {
   "location": {
-    "lat": 70.190509,
+    "lat": 69.190509,
     "lon": 34.536212
   },
   DateRange: {
@@ -251,7 +251,11 @@ var ApprovalService = {
        "category": "Notification"
       },
       {
+<<<<<<< HEAD
+       "name": "Birch, Tracey Sr. Software Dnmceveloper",
+=======
        "name": "Birch, Tracey SOFWERX Sr. Software Developer",
+>>>>>>> f14881e6a052311a1a5012f47100ce672acf5482
        "email": "tracey.birch@sofwerx.org",
        "section": "SOFWERX Level 2",
        "category": "Notification"
