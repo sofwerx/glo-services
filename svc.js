@@ -63,12 +63,12 @@ app.post('/WeatherService/GetWeatherRpt', function(req, res) {
   res.json(WeatherService_GetWeatherRpt);
 });
 
-app.post('/PlanFactorService', function(req, res) {
+app.post('/PlanFactorService/GetMissionDetails', function(req, res) {
   var token = req.body.AuthToken;
   var unit = req.body.UIC;
 
   res.cookie("glo-svc","XYZZZ6",{maxAge: 86400});
-  res.json(PlanFactorService);
+  res.json(PlanFactorService_GetMissionDetails);
 });
 
 app.post('/ApprovalService', function(req, res) {
@@ -201,7 +201,7 @@ var ForceMgmtService_GetUnitTOE = {
 
 var WeatherService_GetClimate = {
   "location": {
-    "lat": 69.190509,
+    "lat": 75.190509,
     "lon": 34.536212
   },
   "ClimateTemp": "temperate",
@@ -222,7 +222,7 @@ var WeatherService_GetWeatherRpt = {
   "Precipitation": 0
 }
 
-var PlanFactorService = {
+var PlanFactorService_GetMissionDetails = {
    "requestOK": true,
    "AuthToken": "XYZZZ3",
    "UIC": "WH1BAA",
