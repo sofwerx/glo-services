@@ -251,11 +251,7 @@ var ApprovalService = {
        "category": "Notification"
       },
       {
-<<<<<<< HEAD
-       "name": "Birch, Tracey Sr. Software Dnmceveloper",
-=======
        "name": "Birch, Tracey SOFWERX Sr. Software Developer",
->>>>>>> f14881e6a052311a1a5012f47100ce672acf5482
        "email": "tracey.birch@sofwerx.org",
        "section": "SOFWERX Level 2",
        "category": "Notification"
