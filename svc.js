@@ -245,13 +245,13 @@ var ApprovalService = {
        "category": "Approval"
       },
       {
-       "name": "Caldas, Rodrigo Data Science/DevOps Intern",
+       "name": "Caldas, Rodrigo SOFWERX Data Science/DevOps Intern",
        "email": "rodrigo.caldas.intern@sofwerx.org",
        "section": "SOFWERX Level 1",
        "category": "Notification"
       },
       {
-       "name": "Birch, Tracy Sr. Software Developer",
+       "name": "Birch, Tracey SOFWERX Sr. Software Developer",
        "email": "tracey.birch@sofwerx.org",
        "section": "SOFWERX Level 2",
        "category": "Notification"
