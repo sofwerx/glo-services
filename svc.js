@@ -222,7 +222,7 @@ var WeatherService_GetWeatherRpt = {
   "Precipitation": 0
 }
 
-var PlanFactorService_GetMissionDetails = {
+var PlanFactorService = {
    "requestOK": true,
    "AuthToken": "XYZZZ3",
    "UIC": "WH1BAA",
