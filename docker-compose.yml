@@ -8,6 +8,7 @@ x-logging:
   driver: json-file
 
 networks: 
+
   default:
     driver: bridge
 
@@ -17,8 +18,8 @@ services:
     container_name: glo-services
     hostname: glo-services
     build: .
-    image: sofwerx/glo-services:latest
-#      - .:/glo-services
+    image: sofwerx/glo-services
+    restart: always
     ports:
       - 8080:8080
     networks:
@@ -27,7 +28,7 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=glo-services"
       - "traefik.port=8080"
-      - "traefik.frontend.rule=Host:glo-services.vmhost.devwerx.org"
+      - "traefik.frontend.rule=Host:glo-services.${DNS_DOMAIN}"
       - "traefik.frontend.passHostHeader=false"
       - "traefik.frontend.entryPoints=http,https"
 
